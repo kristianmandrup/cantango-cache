@@ -1,6 +1,6 @@
 module CanTango
-  class Ability
-    class Cache
+  module Ability
+    module Cache
       class Writer
         include CanTango::Helpers::Debug
 
