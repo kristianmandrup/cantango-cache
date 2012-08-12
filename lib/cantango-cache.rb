@@ -1,3 +1,4 @@
+require 'cantango-config'
 require 'cantango/cache_ext'
 
 module CanTango
