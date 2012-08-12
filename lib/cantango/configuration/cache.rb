@@ -1,25 +1,33 @@
 module CanTango
   class Configuration
-    class Engines
-      class Cache < Engine
+    class Cache
+      sweetload :Storage
 
-        def compile state
-          raise "Must be set to :on or :off" if ![:on, :off].include? state
-          @compile = state
-        end
+      def compile state
+        raise "Must be set to :on or :off" if ![:on, :off].include? state
+        @compile = state
+      end
 
-        def compile?
-          @compile ||= :on
-          @compile == :on
-        end
+      def compile?
+        @compile ||= :on
+        @compile == :on
+      end
 
-        def store &block
-          @store ||= ns::Store.new
-          # CanTango::Ability::Cache::MonetaCache
-          @store.default_class ||= CanTango::Ability::Cache::SessionCache
-          yield @store if block
-          @store
-        end
+      # yield a store configuration object
+      def store options = {}, &block
+        @store ||= store_clazz.new
+        @store.adapter_class ||= default_adapter_class
+        @store.default_options = options
+        yield @store if block_given?
+        @store
+      end
+
+      def default_adapter_class
+        CanTango::Cache::Store::SessionAdapter
+      end
+
+      def store_clazz
+        ns::Storage
       end
     end
   end

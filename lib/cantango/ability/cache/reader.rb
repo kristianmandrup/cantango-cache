@@ -2,7 +2,7 @@ module CanTango
   module Ability
     module Cache
       class Reader
-        include CanTango::Helpers::Debug
+        include CanTango::Helper::Debug
 
         attr_reader :cache
 

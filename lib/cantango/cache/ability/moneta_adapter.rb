@@ -3,15 +3,14 @@ require 'active_support/inflector'
 
 module CanTango
   module Cache
-    class Moneta < Base
-      # one cache store is shared for all store instances (w different names)
-      attr_reader :store
-
+    class MonetaAdapter < BaseAdapter
       # for a YamlStore, the name is the name of the yml file
       def initialize name, options = {}
         super
-        @store = CanTango::Cache::MonetaCache.instance
-        @store.configure_with options
+      end
+
+      def self.default_store_class
+        CanTango::Cache::Store::MonetaAdapter
       end
 
       def load key

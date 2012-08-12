@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "cantango-cache"
   gem.homepage = "http://github.com/kristianmandrup/cantango-cache"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Caching for CanTango}
+  gem.description = %Q{Allow caching of CanTango Abilities}
   gem.email = "kmandrup@gmail.com"
   gem.authors = ["Kristian Mandrup"]
   # dependencies defined in Gemfile

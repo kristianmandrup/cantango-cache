@@ -25,5 +25,4 @@ module CanTango
       end
     end
   end
-
 end

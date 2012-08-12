@@ -2,7 +2,7 @@ module CanTango
   module Ability
     module Cache
       class Writer
-        include CanTango::Helpers::Debug
+        include CanTango::Helper::Debug
 
         attr_reader :cache, :cache_key
 

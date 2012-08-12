@@ -1,7 +1,7 @@
 module CanTango
   module Ability
     class Cache
-      autoload_modules :BaseCache, :SessionCache, :Reader, :Writer, :RulesCache, :Key
+      sweetload :BaseCache, :SessionCache, :Reader, :Writer, :RulesCache, :Key
 
       include CanTango::Helpers::Debug
       include CanTango::Helpers::RoleMethods
